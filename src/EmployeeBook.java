@@ -170,6 +170,7 @@ public class EmployeeBook {
         }
     }
     public void printAll (int department){
+        boolean hasEmployee = false;
         for (Employee employee : employees) {
             if (employee == null) {
                 continue;
@@ -177,7 +178,11 @@ public class EmployeeBook {
             if (employee.getDepartment()!= department) {
                 continue;
             }
+            hasEmployee = true;
             System.out.println("ФИО сотрудника " + employee.getFullName() + ", Зарплата " + employee.getSalary() + " рублей, id " + employee.getId());
+        }
+        if (!hasEmployee){
+            System.out.println("No Person");
         }
     }
     public void printEmployeeMinSalary (double salary){
@@ -221,6 +226,32 @@ public class EmployeeBook {
             if(employees[i].getId() == id) {
                 employees[i] = null;
             }
+        }
+    }
+    public void updateSalary(String fullName, double salary) {
+        for (Employee employee : employees) {
+            if (employee == null) {
+                continue;
+            }
+            if (employee.getFullName().equalsIgnoreCase(fullName)){
+                employee.setSalary(salary);
+            }
+        }
+    }
+    public void updateDepartment(String fullName, int department) {
+        for (Employee employee : employees) {
+            if (employee == null) {
+                continue;
+            }
+            if (employee.getFullName().equalsIgnoreCase(fullName)){
+                employee.setDepartment(department);
+            }
+        }
+    }
+    public void printAllByDepartment (){
+        for (int i = 1; i < 6; i++) {
+            System.out.println("Department № " + i);
+            printAll(i);
         }
     }
 }
