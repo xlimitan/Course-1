@@ -7,8 +7,6 @@ public class Main {
         employeeBook.remove(3);
         employeeBook.printAll();
         employeeBook.add(new Employee("Vano Vanov Vanovich",2, 31000));
-        employeeBook.updateSalary("vano vanov Vanovich", 35000);
-        employeeBook.updateDepartment("vano vanov Vanovich", 3);
         System.out.println();
         employeeBook.printAll();
         System.out.println("Общие затраты на запралаты в месяц " +  employeeBook.totalSalary() + " рублей");
@@ -35,7 +33,5 @@ public class Main {
         employeeBook.printEmployeeMinSalary(30000);
         System.out.println();
         employeeBook.printEmployeeMaxSalary(50000);
-        System.out.println();
-        employeeBook.printAllByDepartment();
     }
 }
